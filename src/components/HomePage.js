@@ -1,0 +1,14 @@
+import { Component } from "react";
+
+class HomePage extends Component {
+  render() {
+    return (
+      <div className="homePage">
+        <h1>Welcome to my store!</h1>
+        <p>Find Your Next Pair of shoes For every occasion.</p>
+        <img src="https://images.pexels.com/photos/1630344/pexels-photo-1630344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="shoes"></img>
+      </div>
+    );
+  }
+}
+export default HomePage;

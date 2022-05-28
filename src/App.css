@@ -213,8 +213,27 @@
 }
 
 .spinner {
-  margin-top: 85px;
+  /* margin-top: 85px;
+  text-align: center; */
   text-align: center;
+  height: 120px;
+  margin-top: 50px;
+}
+.spinner img {
+  animation-name: load;
+  animation-duration: 7s;
+
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes load {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 850px) {

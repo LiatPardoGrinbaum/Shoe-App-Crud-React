@@ -79,7 +79,6 @@ class PopUp extends React.Component {
     );
   };
   render() {
-    console.log(this.props.brand);
     return (
       <div className="popUp">
         <div className="popUpWindow">

@@ -1,10 +1,11 @@
 import { Component } from "react";
+import spinner from "../assets/spinner.png";
 
 class Spinner extends Component {
   render() {
     return (
       <div className="spinner">
-        <h1>Loading...</h1>
+        <img src={spinner} alt="" className="spinner" />
       </div>
     );
   }

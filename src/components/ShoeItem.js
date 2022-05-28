@@ -1,6 +1,5 @@
 import { Component } from "react";
 import PopUp from "./PopUp";
-// import close from "../assets/closeIcon.png";
 
 class ShoeItem extends Component {
   state = {

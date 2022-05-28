@@ -4,10 +4,13 @@
   flex-direction: column;
 
   height: 100vh;
-  background: white cover;
+  /* background: white cover; */
+  background: url("./assets/background3.jpg") no-repeat center center/cover;
+
   position: relative;
   overflow-y: scroll;
   position: relative;
+  scroll-behavior: smooth;
 }
 .container::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
@@ -24,7 +27,7 @@
   width: 100%;
   padding: 5px;
   gap: 10px;
-  background: rgba(255, 247, 240, 0.785);
+  background: rgba(255, 255, 255, 0.538);
   border-bottom: 4px solid rgb(255, 166, 83);
   font-family: "Overlock SC", cursive;
   z-index: 1;
@@ -61,7 +64,7 @@
   text-align: center;
   flex-direction: column;
   height: auto;
-  font-family: "El Messiri", sans-serif;
+  font-family: "Overlock SC", cursive;
   margin-top: 80px;
 }
 .homePage > h1 {
@@ -118,6 +121,7 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
+  font-family: "Overlock SC", cursive;
 }
 .add-bar {
   display: flex;
@@ -143,6 +147,8 @@
   border-radius: 5px;
   border: none;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  font-family: "Overlock SC", cursive;
+  font-size: 16px;
 }
 .btn {
   padding: 5px 10px;
@@ -153,6 +159,8 @@
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   cursor: pointer;
   margin: 5px 0px;
+  font-family: "Overlock SC", cursive;
+  font-size: 16px;
 }
 .btn:hover {
   background: rgb(252, 153, 67);
@@ -170,7 +178,7 @@
 }
 .item-card {
   display: flex;
-  background: rgba(255, 247, 240, 0.785);
+  background: rgba(255, 240, 226, 0.853);
   align-items: center;
   justify-content: space-between;
   width: 70%;
@@ -178,6 +186,7 @@
   border-radius: 20px;
   padding: 10px;
   font-family: "Overlock SC", cursive;
+  box-shadow: rgba(8, 26, 9, 0.35) 0px 5px 15px;
 }
 
 .image {
@@ -252,4 +261,27 @@
 .btnYesNo {
   width: 80px;
   margin: 5px;
+}
+
+.update-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.update-inputs input {
+  background: rgba(254, 239, 237, 0.785);
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  font-family: "Overlock SC", cursive;
+  font-size: 16px;
+}
+.btnUpdate {
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
 }

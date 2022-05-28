@@ -71,7 +71,8 @@ class ShoeItem extends Component {
             brand={this.props.brand}
             size={this.props.size}
             price={this.props.price}
-            image={this.props.image}></PopUp>
+            image={this.props.image}
+            checkIfNumber={this.props.checkIfNumber}></PopUp>
         )}
       </div>
     );

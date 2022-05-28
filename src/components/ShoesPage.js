@@ -12,6 +12,8 @@ class ShoesPage extends Component {
     newSize: "",
     newPrice: "",
     newImage: "",
+    isValidValue: "",
+    isUpdateValid: "",
   };
   async componentDidMount() {
     this.setState({ isSpinner: true });
@@ -24,32 +26,41 @@ class ShoesPage extends Component {
   }
   insertItems = () => {
     return this.state.shoesArr.map(({ Brand, Price, Size, id, imageUrl }) => {
-      return <ShoeItem key={id} id={id} brand={Brand} size={Size} price={Price} image={imageUrl} onHandleDelete={this.onHandleDelete} onHandleUpdate={this.onHandleUpdate} />;
+      return <ShoeItem key={id} id={id} brand={Brand} size={Size} price={Price} image={imageUrl} onHandleDelete={this.onHandleDelete} onHandleUpdate={this.onHandleUpdate} checkIfNumber={this.checkIfNumber} />;
     });
+  };
+  checkIfNumber = (value) => {
+    //checks if string contain only digits
+    let isNum = /^\d+$/.test(value);
+    return isNum;
   };
   //create
   handleCreate = async () => {
-    this.setState({ isSpinner: true });
-    const newShoes = {
-      Brand: this.state.newBrand,
-      Size: this.state.newSize,
-      Price: this.state.newPrice,
-      imageUrl: this.state.newImage,
-    };
-    try {
-      const createdShoes = await API.post("/shoes", newShoes);
-      this.setState((prev) => {
-        return {
-          shoesArr: [...prev.shoesArr, createdShoes.data],
-          isSpinner: false,
-          newBrand: "",
-          newSize: null,
-          newPrice: null,
-          newImage: "",
-        };
-      });
-    } catch (err) {
-      console.log(err);
+    if (this.state.newBrand.length < 1 || !this.checkIfNumber(this.state.newSize) || !this.checkIfNumber(this.state.newPrice)) {
+      this.setState({ isValidValue: true });
+    } else {
+      this.setState({ isValidValue: false, isSpinner: true });
+      const newShoes = {
+        Brand: this.state.newBrand,
+        Size: this.state.newSize,
+        Price: this.state.newPrice,
+        imageUrl: this.state.newImage,
+      };
+      try {
+        const createdShoes = await API.post("/shoes", newShoes);
+        this.setState((prev) => {
+          return {
+            shoesArr: [...prev.shoesArr, createdShoes.data],
+            isSpinner: false,
+            newBrand: "",
+            newSize: "",
+            newPrice: "",
+            newImage: "",
+          };
+        });
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
   //delete by id
@@ -68,6 +79,7 @@ class ShoesPage extends Component {
   //update
   onHandleUpdate = async (newBrand, newSize, newPrice, newImageUrl, id) => {
     this.setState({ isSpinner: true });
+
     try {
       const shoesObjToBeUpdate = this.state.shoesArr.find((shoesObj) => {
         return id === shoesObj.id;
@@ -140,6 +152,7 @@ class ShoesPage extends Component {
                   Add
                 </button>
               </div>
+              {this.state.isValidValue && <p style={{ color: "rgba(253, 71, 43, 0.785)", margin: "0" }}>Please enter a valid value.</p>}
             </div>
             <div className="cards-wrap">{this.insertItems()}</div>
           </div>

@@ -2,6 +2,7 @@ import { Component } from "react";
 
 class HomePage extends Component {
   render() {
+    console.log(isNaN("la"));
     return (
       <div className="homePage">
         <h1>Welcome to my store!</h1>

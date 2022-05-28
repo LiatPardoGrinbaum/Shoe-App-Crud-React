@@ -30,9 +30,9 @@ class ShoesPage extends Component {
     });
   };
   checkIfNumber = (value) => {
-    //checks if string contain only digits
-    let isNum = /^\d+$/.test(value);
-    return isNum;
+    //checks if string is a number. return flase if it is
+    let isNum = isNaN(value);
+    return !isNum;
   };
   //create
   handleCreate = async () => {

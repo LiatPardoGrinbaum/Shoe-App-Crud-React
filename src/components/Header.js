@@ -5,7 +5,11 @@ class ShoesPage extends Component {
   render() {
     return (
       <div className="header-container">
-        <div className="logo">Shoes For Life</div>
+        <div className="logo">
+          <Link to="/" className="logo-link">
+            Shoes For Life{" "}
+          </Link>
+        </div>
         <div className="links">
           <div>
             <Link to="/" className="link">
